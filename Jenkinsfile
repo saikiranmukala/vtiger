@@ -3,12 +3,6 @@ pipeline {
 
     stages {
 
-        stage('Checkout Code') {
-            steps {
-                git 'https://github.com/saikiranmukala/vtiger.git'
-            }
-        }
-
         stage('Build') {
             steps {
                 bat 'mvn clean compile'
@@ -17,7 +11,7 @@ pipeline {
 
         stage('Run Tests') {
             steps {
-                bat 'mvn test -DsuiteXmlFile=testng.xml'
+                bat 'mvn test -DsuiteXmlFile=testng_BatchExecution.xml'
             }
         }
     }
